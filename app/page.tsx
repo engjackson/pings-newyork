@@ -1,103 +1,65 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="bg-white">
+      {/* Hero */}
+      <section className="relative h-[80vh] flex items-center justify-center bg-cover bg-center" style={{ backgroundImage: "url('/hero.jpg')" }}>
+        <div className="bg-black bg-opacity-40 p-8 rounded-lg text-center">
+          <h1 className="text-white text-5xl font-playfair">Ping’s</h1>
+          <p className="text-white text-lg mt-2">Authentic Hong Kong Cuisine in NYC Since 1998</p>
+          <a href="#menu" className="mt-6 inline-block bg-primary text-white px-6 py-3 rounded-lg hover:bg-[#6b0e24] transition">View Menu</a>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </section>
+
+      {/* About */}
+      <section className="py-16 px-6 md:px-12 text-center">
+        <h2 className="text-3xl font-playfair text-primary mb-4">Our Story</h2>
+        <p className="max-w-3xl mx-auto text-lg text-gray-700">
+          Since 1998, Ping’s has offered guests an unforgettable experience of Hong Kong fare. 
+          With an extensive menu of traditional dim sum and fresh seafood specialties, 
+          it is a new adventure every time. Conveniently located in the heart of Chinatown, 
+          Ping’s gives New Yorkers the chance to dine as they would in Hong Kong without ever having to leave town.
+        </p>
+      </section>
+
+      {/* Menu Highlights */}
+      <section id="menu" className="py-16 px-6 md:px-12 bg-gray-50">
+        <h2 className="text-3xl font-playfair text-primary text-center mb-10">Menu Highlights</h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {[
+            { img: "/dish1.jpg", name: "Shrimp Dumplings", desc: "Steamed to perfection with fresh shrimp." },
+            { img: "/dish2.jpg", name: "Crispy Roast Duck", desc: "Golden-brown, savory, tender, signature marinade." },
+            { img: "/dish3.jpg", name: "Lobster with Ginger & Scallion", desc: "Fresh lobster stir-fried with aromatic ginger and scallions." }
+          ].map((dish, idx) => (
+            <div key={idx} className="bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition">
+              <img src={dish.img} alt={dish.name} className="w-full h-56 object-cover" />
+              <div className="p-4">
+                <h3 className="font-bold text-lg">{dish.name}</h3>
+                <p className="text-gray-600 mt-2">{dish.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section className="bg-white py-12 px-6 md:px-12 text-center">
+        <h2 className="text-3xl font-playfair text-primary mb-4">Visit Us</h2>
+        <p className="text-lg">22 Mott St, New York, NY 10013</p>
+        <p className="text-lg">Mon-Fri 11:00 AM – 9:30 PM | Sat-Sun 9:00 AM – 10:00 PM</p>
+        <p className="mt-2">Call: <a href="tel:2126029988" className="text-primary">212-602-9988</a></p>
+        <a 
+          href="https://maps.apple.com/?address=22%20Mott%20St,%20New%20York,%20NY" 
+          target="_blank" 
+          className="inline-block mt-4 bg-primary text-white px-6 py-3 rounded-lg hover:bg-[#6b0e24] transition"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
+          Open in Maps
         </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black text-white py-6 text-center">
+        <p>&copy; {new Date().getFullYear()} Ping’s New York. All Rights Reserved.</p>
       </footer>
-    </div>
+    </main>
   );
 }

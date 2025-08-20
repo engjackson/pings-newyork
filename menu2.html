@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Ping’s Restaurant</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .text-primaryRed { color: #82112c; }
+        .bg-primaryRed { background-color: #82112c; }
+    </style>
+</head>
+<body class="bg-white text-gray-900 flex flex-col min-h-screen">
+    
+    <div id="header"></div>
+
+    <header class="bg-gray-900 text-white py-16 text-center">
+        <h1 class="font-heading text-5xl font-bold">Our Menu</h1>
+        <p class="mt-4 text-lg text-gray-300">Authentic Hong Kong flavors — freshly made every day</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 py-16 space-y-20 flex-grow">
+        <section>
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Dim Sum</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <div>steamed shrimp dumplings</div>
+                <div>steamed crab and seafood dumplings</div>
+                <div>steamed seafood parsley dumplings</div>
+                </div>
+        </section>
+        </main>
+
+    <div id="footer"></div>
+
+    <script>
+        async function loadContent() {
+            try {
+                // 1. Fetch and inject the header
+                const headerRes = await fetch('./header.html');
+                const headerHtml = await headerRes.text();
+                document.getElementById('header').innerHTML = headerHtml;
+
+                // 2. Add event listener for the hamburger menu
+                const menuButton = document.getElementById('menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // 3. Fetch and inject the footer
+                const footerRes = await fetch('./footer.html');
+                const footerHtml = await footerRes.text();
+                document.getElementById('footer').innerHTML = footerHtml;
+
+                // 4. Update the copyright year
+                document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+
+            } catch (error) {
+                console.error("Error loading content:", error);
+            }
+        }
+        
+        loadContent();
+    </script>
+</body>
+</html>

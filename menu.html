@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu - Ping’s Restaurant</title>
+
+ <!-- Google Analytics code -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XFLE861Q5C"></script>
+ <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'G-XFLE861Q5C');
+ </script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .font-heading { font-family: 'Playfair Display', serif; }
+        .text-primaryRed { color: #82112c; }
+        .bg-primaryRed { background-color: #82112c; }
+        .bg-primaryBlack { background-color: #1a1a1a; }
+
+        /* Styles for the smooth accordion effect */
+        .menu-section {
+            max-height: 2000px;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .menu-section.hidden {
+            max-height: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        /*
+            Removing the conflicting gallery CSS.
+            The default Tailwind classes for flex and overflow-x-auto
+            will handle the carousel behavior.
+        */
+        .gallery-container::-webkit-scrollbar {
+            display: none; /* Hide scrollbar for Chrome, Safari, and Opera */
+        }
+        .gallery-container {
+            -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
+            scrollbar-width: none;     /* Hide scrollbar for Firefox */
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900 flex flex-col min-h-screen">
+    
+    <div id="header-container"></div>
+
+    <header class="bg-gray-50 text-gray-900 py-16 text-center">
+        <h1 class="font-heading text-5xl font-bold text-gray-900">Our Menu</h1>
+        <p class="mt-4 text-lg text-primaryRed">Authentic Hong Kong flavors — freshly made every day</p>
+        
+        <div class="mt-8 relative px-4 sm:px-0">
+            <button id="scroll-left-btn" class="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 hidden md:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                </svg>
+            </button>
+
+            <div id="menu-links-container" class="overflow-x-auto whitespace-nowrap scroll-smooth">
+                <div class="inline-block space-x-4 px-4 sm:px-0">
+                    <a href="#" data-section="dim-sum" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Dim Sum</a>
+                    <a href="#" data-section="appetizers" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Appetizers</a>
+                    <a href="#" data-section="bento" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Bento Rice Box</a>
+                    <a href="#" data-section="poultry" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Poultry</a>
+                    <a href="#" data-section="pork-beef" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Pork & Beef</a>
+                    <a href="#" data-section="seafood" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Seafood</a>
+                    <a href="#" data-section="vegetarian" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Vegetarian</a>
+                    <a href="#" data-section="rice-noodle" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Rice & Noodle</a>
+                    <a href="#" data-section="soups" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Soups</a>
+                    <a href="#" data-section="drinks" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Beer & Wine</a>
+                </div>
+            </div>
+
+            <button id="scroll-right-btn" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto py-16 flex-grow">
+        
+        <div id="dim-sum-section" class="menu-section bg-gray-50 p-8 rounded-lg">
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Dim Sum</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div>Steamed Shrimp Dumplings</div>
+                <div>Steamed Crab and Seafood Dumplings</div>
+                <div>Steamed Seafood Parsley Dumplings</div>
+                <div>Steamed Shrimp and Chive Dumplings</div>
+                <div>Steamed Seafood Spinach Dumplings</div>
+                <div>Steamed Crystal Veggie Dumplings</div>
+                <div>Steamed Chiu-chow Style (assorted veggie, nuts) Dumplings</div>
+                <div>Steamed Seafood Shumai</div>
+                <div>Steamed Pork Shumai</div>
+                <div>Steamed Beef Shumai</div>
+                <div>Steamed Chicken Feet with Black Bean Sauce</div>
+                <div>Steamed Roast Pork Bun</div>
+                <div>Pan Fried Chive Dumplings</div>
+                <div>Pork Pot Stickers</div>
+                <div>Crispy Shrimp Wrapped in Bacon</div>
+                <div>Crispy Veggie Roll</div>
+                <div>Crispy Shrimp Roll</div>
+                <div>Crispy Egg Roll</div>
+                <div>Golden Fried Shrimp Balls</div>
+                <div>Minced Shrimp Stuffed Bean Curd</div>
+                <div>XO Stir Fry Noodle Rolls with Veggie</div>
+                <div>Mango Pudding</div>
+                <div>Red Bean Pudding</div>
+            </div>
+
+            <div class="relative p-6 bg-white rounded-lg shadow-sm md:w-1/2 md:mx-auto">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Gallery</h3>
+                <div id="dim-sum-gallery" class="flex overflow-x-auto w-full h-96 scroll-smooth gallery-container">
+                    <div class="flex-none w-full gallery-item p-4">
+                        <img src="images/dish1.png" alt="Steamed Shrimp Dumplings" class="w-full h-56 object-cover rounded-lg">
+                        <div class="mt-4 text-center">
+                            <h4 class="font-semibold text-lg text-gray-800">Steamed Shrimp Dumplings</h4>
+                            <p class="text-sm text-gray-600 mt-1">A classic dim sum staple with fresh shrimp encased in a translucent wrapper.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full gallery-item p-4">
+                        <img src="images/dish2.png" alt="Steamed Crab and Seafood Dumplings" class="w-full h-56 object-cover rounded-lg">
+                        <div class="mt-4 text-center">
+                            <h4 class="font-semibold text-lg text-gray-800">Steamed Crab & Seafood</h4>
+                            <p class="text-sm text-gray-600 mt-1">Delicate dumplings filled with a savory mix of crab and other fresh seafood.</p>
+                        </div>
+                    </div>
+                    <div class="flex-none w-full gallery-item p-4">
+                        <img src="images/dish3.png" alt="Steamed Seafood Parsley Dumplings" class="w-full h-56 object-cover rounded-lg">
+                        <div class="mt-4 text-center">
+                            <h4 class="font-semibold text-lg text-gray-800">Seafood Parsley Dumplings</h4>
+                            <p class="text-sm text-gray-600 mt-1">A unique blend of seafood and fresh parsley for a refreshing flavor.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <button onclick="scrollGallery('dim-sum-gallery', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 ml-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+                <button onclick="scrollGallery('dim-sum-gallery', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 mr-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <div id="appetizers-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Appetizers</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div>Sesame Chilled Jellyfish, Sliced Beef Brisket Platter</div>
+                <div>Lobster Salad - Mixed Greens, Taro Crisps, Asian Sesame Dressing</div>
+                <div>Live Steamed Oysters or Scallops, XO sauce</div>
+                <div>Crispy Diced Pork Ribs, Minced Garlic</div>
+                <div>Crispy Squid, Salt and Chili Pepper</div>
+                <div>House BBQ Roast Pork, Honey Glaze</div>
+                <div>House BBQ Short Ribs, Honey Glaze</div>
+                <div>Roasted rack of Lamb, Rosemary Thyme Herb</div>
+                <div>Crispy Barbecued Quail</div>
+                <div>Sautéed Snail, Salt and Pepper</div>
+                <div>Stir Fry Manila Clamsm Black Bean Sauce</div>
+            </div>
+
+            <div class="relative p-6 bg-white rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Gallery</h3>
+                <div id="appetizers-gallery" class="gallery-container">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x200" alt="Lobster Salad" class="w-full h-auto object-cover rounded-lg">
+                        <div class="mt-4 text-center">
+                            <h4 class="font-semibold text-lg text-gray-800">Lobster Salad</h4>
+                            <p class="text-sm text-gray-600 mt-1">A refreshing mix of mixed greens and lobster with a sesame dressing.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bento-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Bento Rice Box</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                <div>Jumbo Shrimp Omelette Over Rice</div>
+                <div>Fish Fillet with Loofah Over Rice</div>
+                <div>Mixed Seafood & Greens Over Rice</div>
+                <div>Beef with Chinese Broccoli Over Rice</div>
+                <div>Beef with Tomato Over Rice</div>
+                <div>Pork Chop with Peking Sauce Over Rice</div>
+                <div>Pork Chop with Curry Sauce</div>
+                <div>Slowed Cooked Pork Belly Over Rice</div>
+                <div>Sauteed Eggplant Garlic Sauce Over Rice</div>
+                <div>Ma-Po Tofu Over Rice</div>
+                <div>Mixed Shitake Mushrooms & Bok-Choy Over Rice</div>
+            </div>
+
+            <div class="relative p-6 bg-white rounded-lg shadow-sm">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Gallery</h3>
+                <div id="bento-gallery" class="gallery-container">
+                    <div class="gallery-item">
+                        <img src="https://via.placeholder.com/600x200" alt="Jumbo Shrimp Omelette over Rice" class="w-full h-auto object-cover rounded-lg">
+                        <div class="mt-4 text-center">
+                            <h4 class="font-semibold text-lg text-gray-800">Jumbo Shrimp Omelette</h4>
+                            <p class="text-sm text-gray-600 mt-1">A fluffy omelette filled with jumbo shrimp, served over a bed of rice.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="poultry-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Poultry</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>Sichuan Spicy Fried Diced Chicken</div>
+                <div>Half Crispy Fried Chicken in Garlic Flavor</div>
+                <div>Lettuce Wrap, Minced Squab Stir Fried with Vegetables</div>
+                <div>General Tsao's Chicken</div>
+                <div>Roasted Peking Duck, Thin Crepe, Scallions, Hoisin Dip</div>
+                <div>Sesame Chicken</div>
+                <div>Kung Pao Chicken</div>
+                <div>Lemon Chicken</div>
+                <div>Chicken with Black Bean Sauce</div>
+            </div>
+        </div>
+        
+        <div id="pork-beef-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Pork & Beef</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>Pan Seared Steak Kew, French Style</div>
+                <div>Sweet and Sour Pork, Served in Fresh Pineapple</div>
+                <div>Orange Beef</div>
+                <div>Sweet and Sour Boneless Pork</div>
+                <div>Curry Pork Chop</div>
+                <div>Beef with Oyster Sauce</div>
+                <div>Beef with Black Bean Sauce</div>
+                <div>Hot Stone Pot Beef Short Ribs</div>
+                <div>Braised Oxtail Casserole in Curry</div>
+                <div>Curry Beef Brisket</div>
+                <div>Braised Beef Brisket with Daikon</div>
+            </div>
+        </div>
+
+        <div id="seafood-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Seafood</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>Crispy Soft Shell Crab, Chili Salt</div>
+                <div>Shrimp Stuffed Pepper, Topped with Crispy Rice</div>
+                <div>Braised Abalone, Homemade Oyster Sauce</div>
+                <div>Seafood Medley with Vegetables</div>
+                <div>Jumbo Prawns, Creamy Walnut Sauce</div>
+                <div>Kung Pao Shrimp</div>
+                <div>Scallops and Broccoli, Peppercorn Glaze</div>
+                <div>Fish Filet with Garlic Eggplant</div>
+                <div>Prawns and Scallops in Garlic Sauce</div>
+                <div>Shrimp Cashew Nut</div>
+                <div>Stir Fried Fish of Filet in XO Sauce Flavor</div>
+                <div>Catch of the day, freshly steamed **</div>
+            </div>
+        </div>
+        
+        <div id="vegetarian-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Vegetarian</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div>Mixed Vegetables & Bean Curb with Curry Sauce</div>
+                <div>Vegetable Delight (Lotus Roots, Vermicelli, Tofu Skin, Bok Choy)</div>
+                <div>Sautéed Garlic Eggplant</div>
+                <div>Seafood Medley with Vegetables</div>
+                <div>Spiced Ma-Po Tofu</div>
+                <div>Asian Baby Greens with Shallots</div>
+                <div>Pea Shoots Served in Vegetable Broth</div>
+                <div>Pan Fried Stuffed Bean Curd Roll (6pcs)</div>
+            </div>
+        </div>
+
+        <div id="rice-noodle-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+            <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Rice & Noodle</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div>Shittake Mushroom with Pan-Fried Noodles</div>
+                <div>Ping's Signature Soft and Crunchy Crab Meat Fried Rice</div>
+                <div>Stir-Fried Sticky Rice with Asian Sausages</div>
+                <div>Roast Pork and Chicken Pan Fried Noodles, Black Bean Sauce</div>
+                <div>Whole Lobster Braise with Soft Noodles & Veggie</div>
+                <div>Sliced Abalone & Sea Cucumber Braised Soft Noodles</div>
+                <div>Pan Fried Crispy Noodles with Choice of : Pork, Beef, or Chicken</div>
+                <div>Singapore Mei Fun</div>
+                <div>crab Meat Braised with Soft Noodles</div>
+            </div>
+        </div>
+
+<div id="soups-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+    <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Soups</h2>
+    <div class="flex flex-wrap -mx-4">
+        <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">Wonton Soup</div>
+        <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">Hot and Sour Soup</div>
+        <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">Egg Drop Soup</div>
+        <div class="w-full md:w-1/2 lg:w-1/3 px-4 mb-4">Vegetable Tofu Soup</div>
+    </div>
+</div>
+        
+        <div id="drinks-section" class="menu-section hidden bg-gray-50 p-8 rounded-lg">
+    <h2 class="font-heading text-3xl font-bold text-primaryRed mb-8">Beer & Wine</h2>
+
+    <h3 class="font-heading text-2xl font-semibold text-gray-800 mb-4">Champagne 🥂</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <div>Dom Perignon</div>
+        <div>Veuve Cliequot Ponsardin</div>
+        <div>Perrier- Jouet</div>
+    </div>
+
+    <h3 class="font-heading text-2xl font-semibold text-gray-800 mb-4">White Wine 🍾</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <div>Kim Crawford, New Zealand</div>
+        <div>Villa Maria, New Zealand</div>
+        <div>Simi Chardonnay, California</div>
+        <div>Alexander Valley Vineyard Chardonnay, California</div>
+        <div>Simone Sauvignon Blanc</div>
+        <div>Gewurztraminer, Hugel Riesling</div>
+        <div>Duckhorn (Sauvignon Blanc) Napa Valley</div>
+    </div>
+
+    <h3 class="font-heading text-2xl font-semibold text-gray-800 mb-4">Red Wine 🍷</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+        <div>Vignafranca Barba, Italy</div>
+        <div>Alexander Valley Vineyard Merlot, California</div>
+        <div>Robert Mondavi Cabernet Sauvignon, California</div>
+        <div>Simi Merlot, California</div>
+        <div>Ruffino, Italy</div>
+        <div>Edge Cabernet Sauvignon, California</div>
+        
+    </div>
+
+    <h3 class="font-heading text-2xl font-semibold text-gray-800 mb-4">Sake & Beer 🍶🍺</h3>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div>Shao Shing, Chinese white wine</div>
+        <div>Dassai 50, Sake</div>
+        <div>Osakaya Chobei (300 ml), Sake</div>
+        <div>Tsingtao</div>
+        <div>Heneiken</div>
+        <div>Budweiser</div>
+         <div>Corona</div>
+        <div>Guinness</div>
+    </div>
+</div>
+        </div>
+
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        async function loadContent() {
+            try {
+                // Fetch and inject the header
+                const headerRes = await fetch('./header.html');
+                const headerHtml = await headerRes.text();
+                document.getElementById('header-container').innerHTML = headerHtml;
+
+                // Add event listener for the hamburger menu
+                const menuButton = document.getElementById('menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+                
+                // Fetch and inject the footer
+                const footerRes = await fetch('./footer.html');
+                const footerHtml = await footerRes.text();
+                document.getElementById('footer').innerHTML = footerHtml;
+                
+                // Update the copyright year
+                document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+
+                // Show only the Dim Sum section by default
+                document.getElementById('dim-sum-section').classList.remove('hidden');
+
+            } catch (error) {
+                console.error("Error loading content:", error);
+            }
+        }
+        
+        loadContent();
+
+        // New toggle functionality for menu sections
+        document.querySelectorAll('.toggle-link').forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent the page from jumping
+                
+                // Hide all menu sections
+                document.querySelectorAll('.menu-section').forEach(section => {
+                    section.classList.add('hidden');
+                });
+                
+                // Show the selected menu section
+                const sectionId = event.target.dataset.section;
+                const targetSection = document.getElementById(sectionId + '-section');
+                if (targetSection) {
+                    targetSection.classList.remove('hidden');
+                }
+            });
+        });
+
+        // New arrow scroll functionality
+        const menuLinksContainer = document.getElementById('menu-links-container');
+        const scrollLeftBtn = document.getElementById('scroll-left-btn');
+        const scrollRightBtn = document.getElementById('scroll-right-btn');
+
+        const updateArrowVisibility = () => {
+            // Check if the content is wider than the container
+            if (menuLinksContainer.scrollWidth > menuLinksContainer.clientWidth) {
+                // Content is wider, show arrows and update based on scroll position
+                if (menuLinksContainer.scrollLeft <= 0) {
+                    scrollLeftBtn.classList.add('hidden');
+                } else {
+                    scrollLeftBtn.classList.remove('hidden');
+                }
+                if (menuLinksContainer.scrollLeft + menuLinksContainer.clientWidth >= menuLinksContainer.scrollWidth) {
+                    scrollRightBtn.classList.add('hidden');
+                } else {
+                    scrollRightBtn.classList.remove('hidden');
+                }
+            } else {
+                // Content fits, hide both arrows
+                scrollLeftBtn.classList.add('hidden');
+                scrollRightBtn.classList.add('hidden');
+            }
+        };
+
+        scrollRightBtn.addEventListener('click', () => {
+            menuLinksContainer.scrollBy({ left: 150, behavior: 'smooth' });
+        });
+
+        scrollLeftBtn.addEventListener('click', () => {
+            menuLinksContainer.scrollBy({ left: -150, behavior: 'smooth' });
+        });
+
+        menuLinksContainer.addEventListener('scroll', updateArrowVisibility);
+
+        // Initial check on page load and resize
+        window.addEventListener('load', updateArrowVisibility);
+        window.addEventListener('resize', updateArrowVisibility);
+
+        function scrollGallery(galleryId, direction) {
+            const gallery = document.getElementById(galleryId);
+            const scrollAmount = gallery.clientWidth * direction;
+            gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<nav class="bg-primaryRed text-white sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center py-4 md:py-6">
+      <a href="index.html" class="font-heading text-2xl font-bold hover:text-gray-900 transition-colors">
+        Ping’s Restaurant
+      </a>
+
+      <div class="hidden md:flex space-x-6">
+        <a href="menu.html" class="hover:text-gray-900 transition-colors">Menu</a>
+        <a href="reservations.html" class="hover:text-gray-900 transition-colors">Reservations</a>
+      </div>
+
+      <button id="menu-button" class="md:hidden text-gray-200 hover:text-white focus:outline-none">
+        <svg class="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden absolute top-full w-full bg-primaryRed pb-4">
+    <div class="flex flex-col items-center space-y-4 pt-4">
+      <a href="index.html" class="hover:text-gray-900 transition-colors">Home</a>
+      <a href="menu.html" class="hover:text-gray-900 transition-colors">Menu</a>
+      <a href="contact.html" class="hover:text-gray-900 transition-colors">Contact</a>
+    </div>
+  </div>
+</nav>

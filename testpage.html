@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ping's - Hong Kong Fare in NYC</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFLE861Q5C"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XFLE861Q5C');
+  </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primaryRed: '#82112c',
+            primaryBlack: '#000000',
+          },
+          fontFamily: {
+            heading: ['Playfair Display', 'serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .fade-up {
+      animation: fadeUp 0.8s ease forwards;
+    }
+  </style>
+</head>
+
+<body class="bg-white text-primaryBlack font-body">
+
+    <header class="relative h-screen bg-cover bg-center" style="background-image: url('images/hero-dimsum.jpg');">
+    <div class="absolute inset-0 bg-black/40"></div>
+    <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-4">
+      <h1 class="text-5xl md:text-7xl font-heading font-bold fade-up">Ping’s Restaurant</h1>
+      <p class="mt-4 text-lg md:text-2xl fade-up" style="animation-delay: 0.2s">Authentic Hong Kong Dim Sum & Seafood</p>
+      <a href="menu.html" class="mt-6 inline-block bg-primaryRed hover:bg-red-700 px-6 py-3 rounded-full text-lg font-semibold fade-up" style="animation-delay: 0.4s">View Menu</a>
+    </div>
+  </header>
+
+    <section id="about" class="py-16 px-4 md:px-16 fade-up">
+    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+      <img src="images/pings.jpg" alt="About Ping's" class="rounded-lg shadow-lg">
+      <div>
+        <h2 class="text-3xl font-heading font-bold mb-4 text-primaryRed">A Taste of Hong Kong in the Heart of NYC</h2>
+        <p class="text-lg text-primaryBlack mb-4">
+          Since 1996, Ping’s has offered guests an unforgettable experience of Hong Kong fare.
+          With an extensive menu of traditional dim sum and fresh seafood specialties, it is a new adventure every time.
+        </p>
+        <p class="text-lg text-primaryBlack">
+          Conveniently located in Chinatown, Ping’s gives New Yorkers the chance to dine as they would in Hong Kong without ever having to leave town.
+        </p>
+      </div>
+    </div>
+  </section>
+
+    <section id="menu" class="bg-gray-50 py-16 px-4 md:px-16 fade-up">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold text-primaryBlack mb-4">
+        Signature <span class="text-primaryRed">Specialties</span>
+      </h2>
+      <p class="text-lg text-primaryBlack">Discover our most beloved dishes, crafted with authentic recipes and the finest ingredients.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="images/dimsum.jpg" alt="Dim Sum" class="rounded-lg mb-4">
+        <h3 class="text-xl font-heading font-semibold text-primaryRed">Traditional Dim Sum</h3>
+        <p class="text-primaryBlack text-gray-700">Handcrafted daily with premium ingredients. Our signature har gow, siu mai, and char siu bao are local favorites.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="images/prixfixe.jpg" alt="Prix-Fixe Menu" class="rounded-lg mb-4">
+        <h3 class="text-xl font-heading font-semibold text-primaryRed">Chef's Prix-Fixe Menu</h3>
+        <p class="text-primaryBlack text-gray-700">A curated journey through our finest dishes. Four courses featuring seasonal specialties and house favorites.</p>
+      </div>
+      <div class="bg-white rounded-lg shadow hover:shadow-lg transition p-4">
+        <img src="images/beverages.jpg" alt="Premium Beverages" class="rounded-lg mb-4">
+        <h3 class="text-xl font-heading font-semibold text-primaryRed">Premium Beverages</h3>
+        <p class="text-primaryBlack text-gray-700">Carefully selected wines, craft beers, and premium sake to complement your dining experience.</p>
+      </div>
+    </div>
+
+    <div class="flex justify-center mt-12">
+      <a href="menu.html" class="bg-primaryRed hover:bg-red-700 text-white font-semibold py-3 px-6 rounded-md">
+        View Menu
+      </a>
+    </div>
+
+  </section>
+
+<section id="newsletter" class="bg-primaryRed text-white py-16 px-4 md:px-16 fade-up">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="font-heading text-4xl md:text-5xl font-bold mb-4">
+      Join Our Newsletter
+    </h2>
+    <p class="text-lg mb-8">
+      Get exclusive offers, new menu updates, and special event invitations delivered straight to your inbox.
+    </p>
+    <form id="newsletterForm" class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <input 
+        type="text" 
+        name="firstName" 
+        id="firstName"
+        placeholder="First Name" 
+        required 
+        class="w-full sm:w-40 px-4 py-3 rounded-md text-primaryBlack focus:outline-none focus:ring-2 focus:ring-white"
+      />
+      <input 
+        type="email" 
+        name="email" 
+        id="email"
+        placeholder="Email Address" 
+        required 
+        class="w-full sm:w-40 px-4 py-3 rounded-md text-primaryBlack focus:outline-none focus:ring-2 focus:ring-white"
+      />
+      <button
+        type="submit"
+        class="w-full sm:w-auto bg-white hover:bg-gray-200 text-primaryRed font-semibold py-3 px-8 rounded-md transition-colors"
+      >
+        Subscribe
+      </button>
+    </form>
+  </div>
+</section>
+
+<section id="contact" class="py-20 bg-gray-50 fade-up">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="font-heading text-4xl md:text-5xl font-bold text-primaryBlack mb-4">
+        Visit Us <span class="text-primaryRed">Today</span>
+      </h2>
+      <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+        Located in the heart of NYC's historic Chinatown, we're ready to welcome you
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-start">
+            <div class="rounded-lg border bg-white text-black shadow-sm border-gray-200 mb-8 p-6">
+        <h3 class="font-heading text-xl font-semibold flex items-center gap-2 mb-4">📍 Location & Hours</h3>
+        
+        <div class="space-y-4">
+          <div>
+            <div class="font-semibold text-black">Address</div>
+            <div class="text-gray-600">
+              22 Mott Street<br>
+              New York, NY 10013
+            </div>
+          </div>
+
+          <div>
+            <div class="font-semibold text-black">Hours</div>
+            <div class="text-gray-600 space-y-1">
+              <div>Monday - Friday: 11:00 AM - 9:30 PM</div>
+              <div>Saturday - Sunday: 10:00 AM - 9:30 PM</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="font-semibold text-black">Contact</div>
+            <div class="text-gray-600 space-y-1">
+              <div>📞 <a href="tel:+12126029988" class="text-primaryRed font-semibold">Call (212) 602-9988</a></div>
+              <div>✉️ <a href="mailto:pingsnewyork@gmail.com" class="hover:underline">pingsnewyork@gmail.com</a></div>
+            </div>
+          </div>
+
+          <div class="space-y-2 mt-4">
+            <button class="w-full border border-primaryRed text-primaryRed hover:bg-primaryRed hover:text-white font-semibold py-3 rounded-md"><a href="reservations.html">Make a Reservation</a></button>
+          </div>
+        </div>
+      </div>
+
+            <div class="rounded-lg border bg-white text-black shadow-sm border-gray-200 p-6">
+        <h3 class="font-heading text-xl font-semibold mb-4">Getting Here</h3>
+
+        <div class="space-y-6 text-gray-600">
+          <div>
+            <div class="font-semibold text-black mb-2">🚇 Subway</div>
+            <div class="space-y-1">
+              <div>• Canal St (N, Q, R, W, J, Z, 6)</div>
+              <div>• Grand St (B, D)</div>
+              <div>• Bowery (J, Z)</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="font-semibold text-black mb-2">🚗 Parking</div>
+            <div>Street parking available. Several parking garages within 2 blocks.</div>
+          </div>
+
+          <div>
+            <div class="font-semibold text-black mb-2">🚶 Walking</div>
+            <div>5 minutes from Canal Street Station. Located on historic Mott Street in the heart of Chinatown.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <div id="footer"></div>
+<script>
+  fetch('./footer.html')
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById('footer').innerHTML = html;
+      document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+    });
+</script>
+
+<script>
+  document.getElementById('newsletterForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Stop the default form submission
+
+    const firstName = document.getElementById('firstName').value;
+    const email = document.getElementById('email').value;
+
+    const firstNameEntryId = 'entry.1043333138'; 
+    const emailEntryId = 'entry.387745657'; 
+
+    const googleFormUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSd9dYNhJMZ9I0U0g9wBmVQC4BCVIzRAkftzz_s-yYcp6G_qDA/formResponse?';
+    
+    // Construct the URL with form data as query parameters
+    const params = new URLSearchParams();
+    params.append(firstNameEntryId, firstName);
+    params.append(emailEntryId, email);
+
+    // Redirect the user's browser to the Google Form submission URL
+    window.location.href = googleFormUrl + params.toString();
+  });
+</script>
+</body>
+</html>

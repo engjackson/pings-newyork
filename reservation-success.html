@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thank You - Ping's Restaurant</title>
+
+     <!-- Google Analytics code -->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XFLE861Q5C"></script>
+ <script>
+ window.dataLayer = window.dataLayer || [];
+ function gtag(){dataLayer.push(arguments);}
+ gtag('js', new Date());
+
+ gtag('config', 'G-XFLE861Q5C');
+ </script>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primaryRed: '#82112c',
+                        primaryBlack: '#000000',
+                    },
+                    fontFamily: {
+                        heading: ['Playfair Display', 'serif'],
+                        body: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-white text-primaryBlack font-body flex flex-col min-h-screen">
+
+    <div id="header-container"></div>
+
+    <main class="flex-grow py-16 px-4 md:px-16 flex items-center justify-center">
+        <div class="max-w-3xl mx-auto text-center bg-gray-50 p-8 sm:p-12 rounded-lg shadow-md border border-gray-200">
+            <h1 class="font-heading text-3xl md:text-4xl font-bold text-primaryRed mb-4">
+                Thank You for Your Reservation Request!
+            </h1>
+            <p class="text-lg text-gray-700 mb-4">
+                We have received your information and appreciate your interest in dining with us.
+            </p>
+            <p class="text-lg text-gray-700 mb-6">
+                Our team will review your request and respond within 48 hours to confirm availability and finalize your reservation.
+            </p>
+            <p class="text-gray-600 mb-8">
+                If your inquiry is time-sensitive or for a reservation within the next 2 days, please contact us directly at <a href="tel:+12126029988" class="text-primaryRed font-semibold hover:underline">(212) 602-9988</a> for immediate assistance.
+            </p>
+            <p class="font-heading text-xl font-semibold text-gray-800">
+                We look forward to welcoming you soon.
+            </p>
+            <a href="index.html" class="mt-8 inline-block bg-primaryRed hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-md transition-colors">
+                Return to Homepage
+            </a>
+        </div>
+    </main>
+
+    <div id="footer"></div>
+
+    <script>
+        async function loadExternalContent() {
+            try {
+                // Fetch and inject the header
+                const headerRes = await fetch('./header.html');
+                const headerHtml = await headerRes.text();
+                document.getElementById('header-container').innerHTML = headerHtml;
+
+                // Add event listener for the hamburger menu
+                const menuButton = document.getElementById('menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+                menuButton.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+
+                // Fetch and inject the footer
+                const footerRes = await fetch('./footer.html');
+                const footerHtml = await footerRes.text();
+                document.getElementById('footer').innerHTML = footerHtml;
+
+                // Update the copyright year
+                document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+
+            } catch (error) {
+                console.error("Error loading external content:", error);
+            }
+        }
+        
+        loadExternalContent();
+    </script>
+</body>
+</html>
