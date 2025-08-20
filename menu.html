@@ -55,36 +55,38 @@
     <header class="bg-gray-50 text-gray-900 py-16 text-center">
         <h1 class="font-heading text-5xl font-bold text-gray-900">Our Menu</h1>
         <p class="mt-4 text-lg text-primaryRed">
-            Experience the vibrant taste of Hong Kong at Ping's Restaurant. Our authentic dim sum is handcrafted daily by skilled chefs, and our live seafood is prepared straight from the tank to your table. 
+            Experience the vibrant taste of Hong Kong at Ping's Restaurant. </p><p>Our authentic dim sum is handcrafted daily by skilled chefs, and our live seafood is prepared straight from the tank to your table. 
         </p>
         
         <div class="mt-8 relative px-4 sm:px-0">
-            <button id="scroll-left-btn" class="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 hidden md:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
-            </button>
+            <div class="relative max-w-full overflow-hidden flex items-center justify-center">
+                <button id="scroll-left-btn" class="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 hidden md:hidden">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
 
-            <div id="menu-links-container" class="overflow-x-auto scroll-smooth">
-                <div class="flex flex-nowrap justify-center space-x-2 sm:space-x-4 px-4 sm:px-0">
-                    <a href="#" data-section="dim-sum" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Dim Sum</a>
-                    <a href="#" data-section="appetizers" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Appetizers</a>
-                    <a href="#" data-section="bento" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Bento Rice Box</a>
-                    <a href="#" data-section="poultry" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Poultry</a>
-                    <a href="#" data-section="pork-beef" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Pork & Beef</a>
-                    <a href="#" data-section="seafood" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Seafood</a>
-                    <a href="#" data-section="vegetarian" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Vegetarian</a>
-                    <a href="#" data-section="rice-noodle" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Rice & Noodle</a>
-                    <a href="#" data-section="soups" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Soups</a>
-                    <a href="#" data-section="drinks" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Beer & Wine</a>
+                <div id="menu-links-container" class="overflow-x-auto scroll-smooth flex-grow">
+                    <div class="flex flex-nowrap justify-center space-x-2 sm:space-x-4 px-4 sm:px-0">
+                        <a href="#" data-section="dim-sum" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Dim Sum</a>
+                        <a href="#" data-section="appetizers" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Appetizers</a>
+                        <a href="#" data-section="bento" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Bento Rice Box</a>
+                        <a href="#" data-section="poultry" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Poultry</a>
+                        <a href="#" data-section="pork-beef" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Pork & Beef</a>
+                        <a href="#" data-section="seafood" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Seafood</a>
+                        <a href="#" data-section="vegetarian" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Vegetarian</a>
+                        <a href="#" data-section="rice-noodle" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Rice & Noodle</a>
+                        <a href="#" data-section="soups" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Soups</a>
+                        <a href="#" data-section="drinks" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Beer & Wine</a>
+                    </div>
                 </div>
-            </div>
 
-            <button id="scroll-right-btn" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
-            </button>
+                <button id="scroll-right-btn" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -122,16 +124,16 @@
             <div class="relative p-6 bg-white rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Dim Sum</h3>
                 <div id="dim-sum-gallery" class="flex flex-nowrap overflow-x-auto w-full h-96 scroll-smooth gallery-container">
-                    <div class="flex-none w-full md:w-1/2 lg:w-1/3 gallery-item p-4">
-                        <img src="images/dimsum_hargow.jpg" alt="Steamed Shrimp Dumplings (Har Gow) from Ping's" class="w-full h-56 object-cover rounded-lg">
+                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                        <img src="images/dimsum_hargow.jpg" alt="Steamed Shrimp Dumplings (Har Gow) from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Steamed Shrimp Dumplings</h4>
                             <p class="text-sm text-gray-600 mt-1">The crown jewel of dim sum: Har Gow is a translucent, pleated wrappers that reveal a juicy shrimp filling inside.</p>
                         </div>
                     </div>
 
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 gallery-item p-4">
-                        <img src="images/dimsum_eggtart.jpg" alt="Hong Kong-style egg tart (Daan Tat) from Ping's" class="w-full h-56 object-cover rounded-lg">
+                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                        <img src="images/dimsum_eggtart.jpg" alt="Hong Kong-style egg tart (Daan Tat) from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Hong Kong-style egg tart</h4>
                             <p class="text-sm text-gray-600 mt-1">Daan Tat aka Hong Kong-style egg tart, is a small, round custard tart commonly found in Cantonese cuisine.</p>
@@ -139,16 +141,16 @@
                     </div>
 
 
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 gallery-item p-4">
-                        <img src="images/dimsum_shumai.jpg" alt="Shumai from Ping's" class="w-full h-56 object-cover rounded-lg">
+                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                        <img src="images/dimsum_shumai.jpg" alt="Shumai from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Shumai</h4>
                             <p class="text-sm text-gray-600 mt-1">Shu Mai is an open-faced dumplings filled with a juicy blend of pork and shrimp, topped with a little pop of roe.</p>
                         </div>
                     </div>
 
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 gallery-item p-4">
-                        <img src="images/dimsum_chasiubao.jpg" alt="BBQ Pork Bun (Cha Siu Bao) from Ping's" class="w-full h-56 object-cover rounded-lg">
+                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                        <img src="images/dimsum_chasiubao.jpg" alt="BBQ Pork Bun (Cha Siu Bao) from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">BBQ Pork Bun</h4>
                             <p class="text-sm text-gray-600 mt-1">Cha Siu Bao is a Cantonese comfort food tucked shaped like a pillowy cloud of dough filled with tender, sweet-and-savory roasted pork.</p>
@@ -156,19 +158,19 @@
                     </div>
 
 
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 gallery-item p-4">
-                        <img src="images/dimsum_ribs.jpg" alt="Steamed Ribs with Black Bean Sauce from Ping's" class="w-full h-56 object-cover rounded-lg">
+                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                        <img src="images/dimsum_ribs.jpg" alt="Steamed Ribs with Black Bean Sauce from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Steamed Ribs</h4>
                             <p class="text-sm text-gray-600 mt-1">Bite-sized pork ribs steamed to tenderness and drenched in a savory, garlicky black bean sauce. </p>
                         </div>
                     </div>
 
-<div class="flex-none w-full md:w-1/2 lg:w-1/3 gallery-item p-4">
-                        <img src="images/dimsum_turnip.jpg" alt="Turnip Cake (Lo Bak Go) from Ping's" class="w-full h-56 object-cover rounded-lg">
+                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                        <img src="images/dimsum_turnip.jpg" alt="Turnip Cake (Lo Bak Go) from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Turnip Cake</h4>
-                            <p class="text-sm text-gray-600 mt-1">Lo Bak Go is made with shredded daikon radish, bits of Chinese sausage, and dried shrimp pan-fried to a crispy golden edge, yet soft and savory inside. </p>
+                            <p class="text-sm text-gray-600 mt-1">Lo Bak Go is made with daikon radish, Chinese sausage, and dried shrimp pan-fried to a crispy golden edge, yet soft and savory inside. </p>
                         </div>
                     </div>
                 </div>
@@ -206,8 +208,8 @@
             <div class="relative p-6 bg-white rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Gallery</h3>
                 <div id="appetizers-gallery" class="flex flex-nowrap overflow-x-auto w-full h-96 scroll-smooth gallery-container">
-                    <div class="flex-none w-full md:w-1/2 lg:w-1/3 gallery-item p-4">
-                        <img src="https://via.placeholder.com/600x200" alt="Fresh Lobster Salad with Mixed Greens" class="w-full h-56 object-cover rounded-lg">
+                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;">
+                        <img src="https://via.placeholder.com/600x200" alt="Fresh Lobster Salad with Mixed Greens" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Lobster Salad</h4>
                             <p class="text-sm text-gray-600 mt-1">A refreshing mix of mixed greens and lobster with a sesame dressing.</p>
@@ -237,8 +239,8 @@
             <div class="relative p-6 bg-white rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Gallery</h3>
                 <div id="bento-gallery" class="flex flex-nowrap overflow-x-auto w-full h-96 scroll-smooth gallery-container">
-                    <div class="flex-none w-full md:w-1/2 lg:w-1/3 gallery-item p-4">
-                        <img src="https://via.placeholder.com/600x200" alt="Jumbo Shrimp Omelette over Rice from Ping's" class="w-full h-56 object-cover rounded-lg">
+                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;">
+                        <img src="https://via.placeholder.com/600x200" alt="Jumbo Shrimp Omelette over Rice from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Jumbo Shrimp Omelette</h4>
                             <p class="text-sm text-gray-600 mt-1">A fluffy omelette filled with jumbo shrimp, served over a bed of rice.</p>
