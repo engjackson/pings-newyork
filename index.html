@@ -241,29 +241,82 @@
             });
     </script>
     
-    <script>
-        // Track 'View Menu' button clicks
-        document.getElementById('hero-menu-btn').addEventListener('click', () => {
-            gtag('event', 'menu_click', {
-                'location': 'hero_section'
+ <script>
+    // Google Analytics 4 tracking code
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XFLE861Q5C', { 'debug_mode': true }); // Keep this while testing, remove later!
+
+    // Function to track various button clicks
+    function trackButtonClick(buttonName, buttonLocation) {
+        gtag('event', 'button_click', {
+            'button_name': buttonName,
+            'button_location': buttonLocation
+        });
+    }
+
+    // Function to track link clicks
+    function trackLinkClick(linkType) {
+        gtag('event', 'link_click', {
+            'link_type': linkType
+        });
+    }
+
+    // Event listeners for all tracked elements
+    document.addEventListener('DOMContentLoaded', (event) => {
+
+        // Track "View Menu" at the top of the page
+        const topMenuBtn = document.getElementById('hero-menu-btn');
+        if (topMenuBtn) {
+            topMenuBtn.addEventListener('click', () => {
+                trackButtonClick('view_menu', 'top');
             });
-        });
-        document.getElementById('menu-btn-bottom').addEventListener('click', () => {
-            gtag('event', 'menu_click', {
-                'location': 'signature_specialties_section'
+        }
+
+        // Track "View Menu" in the middle of the page
+        const middleMenuBtn = document.getElementById('menu-btn-bottom');
+        if (middleMenuBtn) {
+            middleMenuBtn.addEventListener('click', () => {
+                trackButtonClick('view_menu', 'middle');
             });
-        });
+        }
 
-        // Track 'Make a Reservation' button click
-        document.getElementById('reservations-btn').addEventListener('click', () => {
-            gtag('event', 'reservation_click');
-        });
+        // Track "Make a Reservation" button
+        const reservationsBtn = document.getElementById('reservations-btn');
+        if (reservationsBtn) {
+            reservationsBtn.addEventListener('click', () => {
+                trackLinkClick('reservation');
+            });
+        }
 
-        // Track 'Call' link click
-        document.getElementById('phone-link').addEventListener('click', () => {
-            gtag('event', 'phone_call_click');
-        });
-    </script>
+        // Track "Phone Number" link
+        const phoneLink = document.getElementById('phone-link');
+        if (phoneLink) {
+            phoneLink.addEventListener('click', () => {
+                trackLinkClick('phone');
+            });
+        }
 
+        // Add a temporary ID to the email link to track it
+        const emailLink = document.querySelector('a[href^="mailto:"]');
+        if (emailLink) {
+            emailLink.id = 'email-link'; // Assign a temporary ID
+            emailLink.addEventListener('click', () => {
+                trackLinkClick('email');
+            });
+        }
+
+        // Track Newsletter form submission instead of a simple button click. This is more reliable.
+        const newsletterForm = document.querySelector('#newsletter form');
+        if (newsletterForm) {
+            newsletterForm.addEventListener('submit', () => {
+                gtag('event', 'form_submission', {
+                    'form_name': 'newsletter_signup'
+                });
+            });
+        }
+    });
+</script>
 </body>
 </html>
