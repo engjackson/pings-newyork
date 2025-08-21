@@ -39,10 +39,11 @@
         }
 
         /* Custom CSS to hide the scrollbars for the gallery */
-        .gallery-container::-webkit-scrollbar {
+        /* This applies to all screen sizes for a cleaner look */
+        .gallery-container-custom-scroll::-webkit-scrollbar {
             display: none;
         }
-        .gallery-container {
+        .gallery-container-custom-scroll {
             -ms-overflow-style: none;
             scrollbar-width: none;
         }
@@ -60,14 +61,14 @@
         
         <div class="mt-8 relative px-4 sm:px-0">
             <div class="relative max-w-full overflow-hidden flex items-center justify-center">
-                <button id="scroll-left-btn" class="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 hidden md:hidden">
+                <button id="scroll-left-btn" class="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 hidden md:block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
                     </svg>
                 </button>
 
                 <div id="menu-links-container" class="overflow-x-auto scroll-smooth flex-grow">
-                    <div class="flex flex-nowrap justify-center space-x-2 sm:space-x-4 px-4 sm:px-0">
+                    <div class="flex flex-nowrap justify-start md:justify-center space-x-2 sm:space-x-4 px-4 sm:px-0">
                         <a href="#" data-section="dim-sum" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Dim Sum</a>
                         <a href="#" data-section="appetizers" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Appetizers</a>
                         <a href="#" data-section="bento" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Bento Rice Box</a>
@@ -81,7 +82,7 @@
                     </div>
                 </div>
 
-                <button id="scroll-right-btn" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10">
+                <button id="scroll-right-btn" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 hidden md:block">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
                     </svg>
@@ -123,8 +124,8 @@
 
             <div class="relative p-6 bg-white rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Dim Sum</h3>
-                <div id="dim-sum-gallery" class="flex flex-nowrap overflow-x-auto w-full h-96 scroll-smooth gallery-container">
-                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                <div id="dim-sum-gallery" class="gallery-container-custom-scroll relative overflow-y-auto h-96 grid grid-cols-1 gap-4 md:flex md:flex-nowrap md:overflow-x-auto md:overflow-y-hidden md:space-x-4">
+                    <div class="gallery-item flex-none w-full md:w-80">
                         <img src="images/dimsum_hargow.jpg" alt="Steamed Shrimp Dumplings (Har Gow) from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Steamed Shrimp Dumplings</h4>
@@ -132,7 +133,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                    <div class="gallery-item flex-none w-full md:w-80">
                         <img src="images/dimsum_eggtart.jpg" alt="Hong Kong-style egg tart (Daan Tat) from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Hong Kong-style egg tart</h4>
@@ -140,8 +141,7 @@
                         </div>
                     </div>
 
-
-                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                    <div class="gallery-item flex-none w-full md:w-80">
                         <img src="images/dimsum_shumai.jpg" alt="Shumai from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Shumai</h4>
@@ -149,7 +149,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                    <div class="gallery-item flex-none w-full md:w-80">
                         <img src="images/dimsum_chasiubao.jpg" alt="BBQ Pork Bun (Cha Siu Bao) from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">BBQ Pork Bun</h4>
@@ -157,8 +157,7 @@
                         </div>
                     </div>
 
-
-                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                    <div class="gallery-item flex-none w-full md:w-80">
                         <img src="images/dimsum_ribs.jpg" alt="Steamed Ribs with Black Bean Sauce from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Steamed Ribs</h4>
@@ -166,7 +165,7 @@
                         </div>
                     </div>
 
-                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;" >
+                    <div class="gallery-item flex-none w-full md:w-80">
                         <img src="images/dimsum_turnip.jpg" alt="Turnip Cake (Lo Bak Go) from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Turnip Cake</h4>
@@ -174,17 +173,6 @@
                         </div>
                     </div>
                 </div>
-
-                <button onclick="scrollGallery('dim-sum-gallery', -1)" class="absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 ml-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-                    </svg>
-                </button>
-                <button onclick="scrollGallery('dim-sum-gallery', 1)" class="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-white bg-opacity-70 backdrop-blur-sm shadow-md z-10 mr-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-                    </svg>
-                </button>
             </div>
         </div>
         
@@ -207,8 +195,8 @@
 
             <div class="relative p-6 bg-white rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Gallery</h3>
-                <div id="appetizers-gallery" class="flex flex-nowrap overflow-x-auto w-full h-96 scroll-smooth gallery-container">
-                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;">
+                <div id="appetizers-gallery" class="gallery-container-custom-scroll relative overflow-y-auto h-96 grid grid-cols-1 gap-4 md:flex md:flex-nowrap md:overflow-x-auto md:h-96 md:overflow-y-hidden">
+                    <div class="gallery-item flex-none w-full md:w-80">
                         <img src="https://via.placeholder.com/600x200" alt="Fresh Lobster Salad with Mixed Greens" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Lobster Salad</h4>
@@ -238,8 +226,8 @@
 
             <div class="relative p-6 bg-white rounded-lg shadow-sm">
                 <h3 class="text-xl font-semibold mb-4 text-gray-800">Gallery</h3>
-                <div id="bento-gallery" class="flex flex-nowrap overflow-x-auto w-full h-96 scroll-smooth gallery-container">
-                    <div class="gallery-item p-4" style="flex-shrink: 0; width: 100%;">
+                <div id="bento-gallery" class="gallery-container-custom-scroll relative overflow-y-auto h-96 grid grid-cols-1 gap-4 md:flex md:flex-nowrap md:overflow-x-auto md:h-96 md:overflow-y-hidden">
+                    <div class="gallery-item flex-none w-full md:w-80">
                         <img src="https://via.placeholder.com/600x200" alt="Jumbo Shrimp Omelette over Rice from Ping's" class="max-w-full w-full h-56 object-cover rounded-lg">
                         <div class="mt-4 text-center">
                             <h4 class="font-semibold text-lg text-gray-800">Jumbo Shrimp Omelette</h4>
@@ -441,15 +429,13 @@
             });
         });
 
-        // New arrow scroll functionality
+        // New arrow scroll functionality for the main navigation
         const menuLinksContainer = document.getElementById('menu-links-container');
         const scrollLeftBtn = document.getElementById('scroll-left-btn');
         const scrollRightBtn = document.getElementById('scroll-right-btn');
 
         const updateArrowVisibility = () => {
-            // Check if the content is wider than the container
             if (menuLinksContainer.scrollWidth > menuLinksContainer.clientWidth) {
-                // Content is wider, show arrows and update based on scroll position
                 if (menuLinksContainer.scrollLeft <= 0) {
                     scrollLeftBtn.classList.add('hidden');
                 } else {
@@ -461,7 +447,6 @@
                     scrollRightBtn.classList.remove('hidden');
                 }
             } else {
-                // Content fits, hide both arrows
                 scrollLeftBtn.classList.add('hidden');
                 scrollRightBtn.classList.add('hidden');
             }
@@ -481,11 +466,54 @@
         window.addEventListener('load', updateArrowVisibility);
         window.addEventListener('resize', updateArrowVisibility);
 
-        function scrollGallery(galleryId, direction) {
-            const gallery = document.getElementById(galleryId);
-            const scrollAmount = gallery.clientWidth * direction;
-            gallery.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        }
+        // Function to set up a gallery
+        const setupGallery = (galleryId, scrollLeftBtnId, scrollRightBtnId) => {
+            const galleryContainer = document.getElementById(galleryId);
+            const scrollLeftBtn = document.getElementById(scrollLeftBtnId);
+            const scrollRightBtn = document.getElementById(scrollRightBtnId);
+
+            if (!galleryContainer || !scrollLeftBtn || !scrollRightBtn) {
+                return; // Exit if elements are not found
+            }
+
+            const updateGalleryArrowVisibility = () => {
+                if (window.innerWidth < 768) {
+                    scrollLeftBtn.classList.add('hidden');
+                    scrollRightBtn.classList.add('hidden');
+                } else {
+                    if (galleryContainer.scrollWidth > galleryContainer.clientWidth) {
+                        scrollLeftBtn.classList.remove('hidden');
+                        scrollRightBtn.classList.remove('hidden');
+                        if (galleryContainer.scrollLeft <= 0) {
+                            scrollLeftBtn.classList.add('hidden');
+                        }
+                        if (galleryContainer.scrollLeft + galleryContainer.clientWidth >= galleryContainer.scrollWidth) {
+                            scrollRightBtn.classList.add('hidden');
+                        }
+                    } else {
+                        scrollLeftBtn.classList.add('hidden');
+                        scrollRightBtn.classList.add('hidden');
+                    }
+                }
+            };
+
+            scrollRightBtn.addEventListener('click', () => {
+                galleryContainer.scrollBy({ left: 320, behavior: 'smooth' });
+            });
+
+            scrollLeftBtn.addEventListener('click', () => {
+                galleryContainer.scrollBy({ left: -320, behavior: 'smooth' });
+            });
+
+            galleryContainer.addEventListener('scroll', updateGalleryArrowVisibility);
+            window.addEventListener('load', updateGalleryArrowVisibility);
+            window.addEventListener('resize', updateGalleryArrowVisibility);
+        };
+
+        // Initialize all galleries
+        setupGallery('dim-sum-gallery', 'scroll-left-btn-gallery-dim-sum', 'scroll-right-btn-gallery-dim-sum');
+        setupGallery('appetizers-gallery', 'scroll-left-btn-gallery-appetizers', 'scroll-right-btn-gallery-appetizers');
+        setupGallery('bento-gallery', 'scroll-left-btn-gallery-bento', 'scroll-right-btn-gallery-bento');
     </script>
 </body>
 </html>
