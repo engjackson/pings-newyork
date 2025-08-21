@@ -12,17 +12,17 @@
                 <p><a href="https://maps.app.goo.gl/beLqCKU1ywKyE26AA" target="_blank" class="hover:underline">22 Mott Street</a><br> New York, NY 10013</p>
                 <p>Mon - Fri: 11:00 AM - 9:30 PM<br>Sat - Sun: 10:00 AM - 9:30 PM</p>
                 <h3 class="font-heading text-lg font-semibold text-white mt-4 mb-2">Contact</h3>
-                <p>Email: <a href="mailto:pingsnewyork@gmail.com" class="hover:underline">pingsnewyork@gmail.com</a></p>
-                <p>Phone: <a href="tel:+1-212-602-9988" class="hover:underline">(212) 602-9988</a></p>
+                <p>Email: <a href="mailto:pingsnewyork@gmail.com" id="footer-email-link" class="hover:underline">pingsnewyork@gmail.com</a></p>
+                <p>Phone: <a href="tel:+1-212-602-9988" id="footer-phone-link" class="hover:underline">(212) 602-9988</a></p>
             </div>
 
             <div class="text-center md:text-left">
                 <h3 class="font-heading text-lg font-semibold text-white mb-2">Follow Us</h3>
                 <div class="flex justify-center md:justify-start space-x-4">
-                    <a href="https://www.facebook.com/pingsnyc/" target="_blank" class="text-gray-200 hover:text-white transition duration-300">
+                    <a href="https://www.facebook.com/pingsnyc/" target="_blank" id="footer-facebook-link" class="text-gray-200 hover:text-white transition duration-300">
                         <img src="images/social/Facebook_Logo_Primary.png" alt="Facebook" class="h-6 w-6">
                     </a>
-                    <a href="https://www.instagram.com/pingsnyc" target="_blank" class="text-gray-200 hover:text-white transition duration-300">
+                    <a href="https://www.instagram.com/pingsnyc" target="_blank" id="footer-instagram-link" class="text-gray-200 hover:text-white transition duration-300">
                         <img src="images/social/Instagram_Glyph_Gradient.png" alt="Instagram" class="h-6 w-6">
                     </a>
                 </div>
@@ -31,8 +31,47 @@
             <div class="text-center md:text-left">
                 <h3 class="font-heading text-lg font-semibold text-white mb-2">Reservations</h3>
                 <p>Make a reservation to enjoy our authentic cuisine.</p>
-                <a href="reservations.html" class="mt-4 inline-block bg-gray-900 text-white px-6 py-2 rounded-full font-semibold transition duration-300 hover:bg-gray-700">Make a Reservation</a>
+                <a href="reservations.html" id="footer-reservations-btn" class="mt-4 inline-block bg-gray-900 text-white px-6 py-2 rounded-full font-semibold transition duration-300 hover:bg-gray-700">Make a Reservation</a>
             </div>
         </div>
     </div>
 </footer>
+
+<script>
+    // Track clicks on the reservation link in the footer
+    document.getElementById('footer-reservations-btn').addEventListener('click', () => {
+        gtag('event', 'reservation_click', {
+            'location': 'footer'
+        });
+    });
+
+    // Track clicks on the phone number link in the footer
+    document.getElementById('footer-phone-link').addEventListener('click', () => {
+        gtag('event', 'phone_call_click', {
+            'location': 'footer'
+        });
+    });
+
+    // Track clicks on the email link in the footer
+    document.getElementById('footer-email-link').addEventListener('click', () => {
+        gtag('event', 'email_click', {
+            'location': 'footer'
+        });
+    });
+
+    // Track clicks on the Facebook link
+    document.getElementById('footer-facebook-link').addEventListener('click', () => {
+        gtag('event', 'social_media_click', {
+            'platform': 'facebook',
+            'location': 'footer'
+        });
+    });
+
+    // Track clicks on the Instagram link
+    document.getElementById('footer-instagram-link').addEventListener('click', () => {
+        gtag('event', 'social_media_click', {
+            'platform': 'instagram',
+            'location': 'footer'
+        });
+    });
+</script>

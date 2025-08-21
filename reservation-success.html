@@ -5,16 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Thank You - Ping's Restaurant</title>
 
-     <!-- Google Analytics code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XFLE861Q5C"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XFLE861Q5C');
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XFLE861Q5C"></script>
- <script>
- window.dataLayer = window.dataLayer || [];
- function gtag(){dataLayer.push(arguments);}
- gtag('js', new Date());
-
- gtag('config', 'G-XFLE861Q5C');
- </script>
+        // Track the successful reservation request upon page load
+        gtag('event', 'reservation_request_sent', {
+            'event_category': 'Reservation',
+            'event_label': 'Reservation Form Success'
+        });
+    </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -55,12 +58,12 @@
                 Our team will review your request and respond within 48 hours to confirm availability and finalize your reservation.
             </p>
             <p class="text-gray-600 mb-8">
-                If your inquiry is time-sensitive or for a reservation within the next 2 days, please contact us directly at <a href="tel:+12126029988" class="text-primaryRed font-semibold hover:underline">(212) 602-9988</a> for immediate assistance.
+                If your inquiry is time-sensitive or for a reservation within the next 2 days, please contact us directly at <a href="tel:+12126029988" id="phone-link" class="text-primaryRed font-semibold hover:underline">(212) 602-9988</a> for immediate assistance.
             </p>
             <p class="font-heading text-xl font-semibold text-gray-800">
                 We look forward to welcoming you soon.
             </p>
-            <a href="index.html" class="mt-8 inline-block bg-primaryRed hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-md transition-colors">
+            <a href="index.html" id="home-link" class="mt-8 inline-block bg-primaryRed hover:bg-red-700 text-white font-semibold py-3 px-8 rounded-md transition-colors">
                 Return to Homepage
             </a>
         </div>
@@ -97,6 +100,22 @@
         }
         
         loadExternalContent();
+
+        // Add event listener for the "Return to Homepage" button
+        document.getElementById('home-link').addEventListener('click', () => {
+            gtag('event', 'return_to_homepage_click', {
+                'event_category': 'Navigation',
+                'event_label': 'Return to Homepage from Reservation Success'
+            });
+        });
+
+        // Add event listener for the phone number link
+        document.getElementById('phone-link').addEventListener('click', () => {
+            gtag('event', 'phone_number_click', {
+                'event_category': 'Contact',
+                'event_label': 'Phone Number Clicked on Reservation Success Page'
+            });
+        });
     </script>
 </body>
 </html>

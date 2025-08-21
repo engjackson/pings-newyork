@@ -112,16 +112,16 @@
 
                 <div id="menu-links-container" class="overflow-x-auto scroll-smooth flex-grow">
                     <div class="flex flex-nowrap justify-start md:justify-center space-x-2 sm:space-x-4 px-4 sm:px-0">
-                        <a href="#" data-section="dim-sum" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Dim Sum</a>
-                        <a href="#" data-section="appetizers" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Appetizers</a>
-                        <a href="#" data-section="bento" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Bento Rice Box</a>
-                        <a href="#" data-section="poultry" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Poultry</a>
-                        <a href="#" data-section="pork-beef" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Pork & Beef</a>
-                        <a href="#" data-section="seafood" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Seafood</a>
-                        <a href="#" data-section="vegetarian" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Vegetarian</a>
-                        <a href="#" data-section="rice-noodle" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Rice & Noodle</a>
-                        <a href="#" data-section="soups" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Soups</a>
-                        <a href="#" data-section="drinks" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Beer & Wine</a>
+                        <a href="#" data-section="dim-sum" id="dim-sum-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Dim Sum</a>
+                        <a href="#" data-section="appetizers" id="appetizers-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Appetizers</a>
+                        <a href="#" data-section="bento" id="bento-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Bento Rice Box</a>
+                        <a href="#" data-section="poultry" id="poultry-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Poultry</a>
+                        <a href="#" data-section="pork-beef" id="pork-beef-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Pork & Beef</a>
+                        <a href="#" data-section="seafood" id="seafood-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Seafood</a>
+                        <a href="#" data-section="vegetarian" id="vegetarian-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Vegetarian</a>
+                        <a href="#" data-section="rice-noodle" id="rice-noodle-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Rice & Noodle</a>
+                        <a href="#" data-section="soups" id="soups-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Soups</a>
+                        <a href="#" data-section="drinks" id="drinks-link" class="toggle-link text-sm font-medium text-gray-600 hover:text-primaryRed px-3 py-2 rounded-md transition-colors">Beer & Wine</a>
                     </div>
                 </div>
 
@@ -433,6 +433,14 @@
         document.querySelectorAll('.toggle-link').forEach(link => {
             link.addEventListener('click', (event) => {
                 event.preventDefault();
+                // Get the section name from the data attribute
+                const sectionName = event.target.dataset.section;
+                
+                // Track the menu section click
+                gtag('event', 'menu_section_click', {
+                    'section_name': sectionName
+                });
+
                 document.querySelectorAll('.menu-section').forEach(section => {
                     section.classList.add('hidden');
                 });
@@ -449,11 +457,16 @@
         const popupImage = document.getElementById('popup-image');
         const popupCaption = document.getElementById('popup-caption');
         
-        // Function to show the popup
+        // Function to show the popup and track the event
         function showPopup(imageSrc, captionText) {
             popupImage.src = imageSrc;
             popupCaption.textContent = captionText;
             popupOverlay.classList.remove('hidden');
+
+            // Track the image popup event
+            gtag('event', 'photo_popup_view', {
+                'image_caption': captionText
+            });
         }
 
         // Function to hide the popup
@@ -482,6 +495,23 @@
         if (popupOverlay) {
             popupOverlay.addEventListener('click', hidePopup);
         }
+
+        // Add event listeners for the scroll buttons
+        document.getElementById('scroll-left-btn').addEventListener('click', () => {
+            const container = document.getElementById('menu-links-container');
+            container.scrollBy({ left: -200, behavior: 'smooth' });
+            gtag('event', 'menu_scroll', {
+                'direction': 'left'
+            });
+        });
+
+        document.getElementById('scroll-right-btn').addEventListener('click', () => {
+            const container = document.getElementById('menu-links-container');
+            container.scrollBy({ left: 200, behavior: 'smooth' });
+            gtag('event', 'menu_scroll', {
+                'direction': 'right'
+            });
+        });
     </script>
 </body>
 </html>
