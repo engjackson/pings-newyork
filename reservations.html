@@ -63,8 +63,8 @@
             </div>
 
             <form id="reservation-form" action="https://api.web3forms.com/submit" method="POST" class="bg-white p-6 sm:p-10 rounded-lg shadow-md border border-gray-200">
-                <input type="hidden" name="access_key" value="2ed77319-e3ce-47c9-b6c0-c7d0daff6665">
-                <input type="hidden" name="redirect" value="https://engjackson.github.io/pings-newyork/reservation-success.html">
+                <input type="hidden" name="access_key" value="00f1692c-d149-4bef-afee-5139586f63e3">
+                <input type="hidden" name="redirect" value="https://pingsnewyork.github.io/reservation-success.html">
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
@@ -100,25 +100,17 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
-                        <label for="guests" class="block text-sm font-medium text-gray-700 mb-1">Number of Guests <span class="text-primaryRed">*</span></label>
-                        <select name="guests" id="guests" required class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primaryRed">
-                            <option value="">-- Select Guests --</option>
-                            <script>
-                                for (let i = 7; i <= 100; i++) {
-                                    document.write(`<option value="${i}">${i}</option>`);
-                                }
-                            </script>
-                    </div>
-                    <div>
-                        <label for="tables" class="block text-sm font-medium text-gray-700 mb-1">Number of Tables <span class="text-primaryRed">*</span></label>
-                        <select name="tables" id="tables" required class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primaryRed">
-                            <option value="">-- Select Tables --</option>
-                            <script>
-                                for (let i = 1; i <= 10; i++) {
-                                    document.write(`<option value="${i}">${i}</option>`);
-                                }
-                            </script>
-                    </div>
+    <label for="guests" class="block text-sm font-medium text-gray-700 mb-1">Number of Guests <span class="text-primaryRed">*</span></label>
+    <select name="guests" id="guests" required class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primaryRed">
+        <option value="">-- Select Guests --</option>
+    </select>
+</div>
+<div>
+    <label for="tables" class="block text-sm font-medium text-gray-700 mb-1">Number of Tables <span class="text-primaryRed">*</span></label>
+    <select name="tables" id="tables" required class="w-full px-4 py-2 border border-gray-300 rounded-md bg-white focus:outline-none focus:ring-1 focus:ring-primaryRed">
+        <option value="">-- Select Tables --</option>
+    </select>
+</div>
                 </div>
 
                 <div class="mb-6">
@@ -141,83 +133,98 @@
     <div id="footer"></div>
 
     <script>
-        async function loadExternalContent() {
-            try {
-                const headerRes = await fetch('./header.html');
-                const headerHtml = await headerRes.text();
-                document.getElementById('header-container').innerHTML = headerHtml;
+    async function loadExternalContent() {
+        try {
+            const headerRes = await fetch('./header.html');
+            const headerHtml = await headerRes.text();
+            document.getElementById('header-container').innerHTML = headerHtml;
 
-                const menuButton = document.getElementById('menu-button');
-                const mobileMenu = document.getElementById('mobile-menu');
-                menuButton.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-
-                const footerRes = await fetch('./footer.html');
-                const footerHtml = await footerRes.text();
-                document.getElementById('footer').innerHTML = footerHtml;
-
-                document.getElementById("currentYear").innerHTML = new Date().getFullYear();
-
-            } catch (error) {
-                console.error("Error loading external content:", error);
-            }
-        }
-        
-        loadExternalContent();
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const dateInput = document.getElementById('date');
-            const reservationForm = document.getElementById('reservation-form');
-            
-            // Set the min attribute for native browser validation
-            const today = new Date();
-            today.setDate(today.getDate() + 2);
-            const minDate = today.toISOString().split('T')[0];
-            dateInput.setAttribute('min', minDate);
-
-            // Add a JavaScript fallback for cross-browser validation
-            reservationForm.addEventListener('submit', function(event) {
-                const selectedDate = new Date(dateInput.value);
-                const minAllowedDate = new Date();
-                minAllowedDate.setDate(minAllowedDate.getDate() + 2);
-                minAllowedDate.setHours(0, 0, 0, 0); // Normalize time to midnight for comparison
-
-                if (selectedDate < minAllowedDate) {
-                    event.preventDefault();
-                    alert('Reservations must be made at least 48 hours in advance.');
-                }
+            const menuButton = document.getElementById('menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
             });
 
-            const timeSelect = document.getElementById('time');
-            const startTime = 10 * 60; // 10:00 AM
-            const endTime = 20 * 60;   // 8:00 PM
-            const interval = 15;
-            
-            for (let i = startTime; i <= endTime; i += interval) {
-                const hours = Math.floor(i / 60);
-                const minutes = i % 60;
-                const formattedHours = (hours % 12 || 12);
-                const ampm = hours >= 12 ? 'PM' : 'AM';
-                const formattedMinutes = minutes.toString().padStart(2, '0');
-                const timeString = `${formattedHours}:${formattedMinutes} ${ampm}`;
-                const valueString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+            const footerRes = await fetch('./footer.html');
+            const footerHtml = await footerRes.text();
+            document.getElementById('footer').innerHTML = footerHtml;
 
-                const option = document.createElement('option');
-                option.value = valueString;
-                option.text = timeString;
-                timeSelect.appendChild(option);
+            document.getElementById("currentYear").innerHTML = new Date().getFullYear();
+
+        } catch (error) {
+            console.error("Error loading external content:", error);
+        }
+    }
+    
+    loadExternalContent();
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const dateInput = document.getElementById('date');
+        const reservationForm = document.getElementById('reservation-form');
+        
+        // Set the min attribute for native browser validation
+        const today = new Date();
+        today.setDate(today.getDate() + 2);
+        const minDate = today.toISOString().split('T')[0];
+        dateInput.setAttribute('min', minDate);
+
+        // Add a JavaScript fallback for cross-browser validation
+        reservationForm.addEventListener('submit', function(event) {
+            const selectedDate = new Date(dateInput.value);
+            const minAllowedDate = new Date();
+            minAllowedDate.setDate(minAllowedDate.getDate() + 2);
+            minAllowedDate.setHours(0, 0, 0, 0); // Normalize time to midnight for comparison
+
+            if (selectedDate < minAllowedDate) {
+                event.preventDefault();
+                alert('Reservations must be made at least 48 hours in advance.');
             }
         });
-    </script>
-    
-    <script>
+
+        const timeSelect = document.getElementById('time');
+        const startTime = 10 * 60; // 10:00 AM
+        const endTime = 20 * 60;   // 8:00 PM
+        const interval = 15;
+        
+        for (let i = startTime; i <= endTime; i += interval) {
+            const hours = Math.floor(i / 60);
+            const minutes = i % 60;
+            const formattedHours = (hours % 12 || 12);
+            const ampm = hours >= 12 ? 'PM' : 'AM';
+            const formattedMinutes = minutes.toString().padStart(2, '0');
+            const timeString = `${formattedHours}:${formattedMinutes} ${ampm}`;
+            const valueString = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}`;
+
+            const option = document.createElement('option');
+            option.value = valueString;
+            option.text = timeString;
+            timeSelect.appendChild(option);
+        }
+
+        // CORRECT SCRIPT FOR THE 'GUESTS' AND 'TABLES' DROPDOWNS
+        const guestsSelect = document.getElementById('guests');
+        for (let i = 7; i <= 100; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            guestsSelect.appendChild(option);
+        }
+
+        const tablesSelect = document.getElementById('tables');
+        for (let i = 1; i <= 10; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.text = i;
+            tablesSelect.appendChild(option);
+        }
+
         // Track clicks on the phone number link
         document.getElementById('reservations-phone-link').addEventListener('click', () => {
             gtag('event', 'phone_call_click', {
                 'location': 'reservations_page'
             });
         });
-    </script>
+    });
+</script>
 </body>
 </html>
